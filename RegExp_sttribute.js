@@ -1,3 +1,9 @@
+/**
+ * 
+ * @authors Wang Jun (wangjun.org)
+ * @date    2015-02-19 20:18:16
+ * @version $Id$
+ */
 var parttern_str=/cat/igm;
 var parttern_fun=new RegExp("cat","igm");
 console.log(parttern_str.ignoreCase);
