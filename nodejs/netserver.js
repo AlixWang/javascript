@@ -1,3 +1,7 @@
+/*
+    this code will make the net server can provide most console conversation
+*/
+
 var net=require("net"),chat=net.createServer(),clientList=[];
 chat.on('connection',function (client){
     client.name=client.remoteAddress+":"+client.remotePort;
@@ -8,6 +12,12 @@ chat.on('connection',function (client){
         broadcast(data,client);
     });
 
+    //run the error prompt
+    client.on('error',function(e){
+        console.log(e);
+    });
+
+    //when the client take error the server will remove the client 
     client.on('end',function(){
     clientList.splice(clientList.indexOf(client), 1);
     });
@@ -15,7 +25,7 @@ chat.on('connection',function (client){
 });
 
 function broadcast(message,client){
-    var cleanup=[];    
+    var cleanup=[];
     for(var i=0;i<clientList.length;i++){            
         if(client!==clientList[i]){
             if(clientList[i].writable){
@@ -28,7 +38,8 @@ function broadcast(message,client){
             }
     }
 }
-    for(i=0;i<cleanup.length;i+=1) {
+
+for(i=0;i<cleanup.length;i+=1) {
             clientList.splice(clientList.indexOf(cleanup[i]), 1)
     }
 } 
