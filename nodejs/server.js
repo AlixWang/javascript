@@ -1,7 +1,11 @@
-#!/usr/local/bin/node
 var http=require("http");
-http.createServer(function(request,response){
-    response.writeHead(200,{"Content-Type":"text/plain","charset":"utf-8" ,"Content-Length":"20"});
-    response.end('<p>hello my world<p>');
+http.createServer(function (req,rsp){
+    rsp.writeHead(200,{"Content-Type":"text/html"});
+    rsp.write("<p>this is text node app</p>");
+    rsp.end();
 }).listen(8080);
+<<<<<<< HEAD
+console.log("server is set up");
+=======
 console.log("server setup");
+>>>>>>> fae25085c1565b0259e00bba960192dd07841a52
