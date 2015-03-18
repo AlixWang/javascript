@@ -1,3 +1,2 @@
-javascript
-==========
-蒽蒽哈哈哈
+##javascript
+>>this is the javascript code practice
