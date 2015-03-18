@@ -13,8 +13,16 @@
 
 
  	app.get('/',function(req,res){
- 		res.send("welcome to node twitter");
- 		res.send(tweets);
+ 		var title='Chirpie',
+ 			header='Welcome to Chirpie';
+ 		res.render('index',{
+ 			locals:{
+ 				'title':title,
+ 				'header':header,
+ 				'tweets':tweets,
+ 				stylesheets:['/public/style.css']
+ 			}
+ 		});
  	});
 
  	app.post('/send',bodyParser.urlencoded({ extended: false }),function(req,res){
