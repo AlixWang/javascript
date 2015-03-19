@@ -32,6 +32,7 @@ function caller(input){
 	input.awesomeFunc(input.anotherProp);
 }
 
+//run this function
 middleware(awesomeObject);
 anotherMiddleware(awesomeObject);
 caller(awesomeObject);
