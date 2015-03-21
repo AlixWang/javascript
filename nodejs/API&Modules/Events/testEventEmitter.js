@@ -22,8 +22,8 @@
  var ss = new server();
 
  //add EventEmitter's function to server
- s.on('abc',function(){
- 	console.log('abc');
+ s.on('abc',function(name,age){
+ 	console.log('my name is '+ name +" my age is " + age);
  });
 
  ss.on('ABC',function(){
@@ -31,6 +31,6 @@
  });
 
  //emit the s 
- s.emit('abc');
+ s.emit('abc','wangjun',23);	//they can hava come argumets to transfer to server function
  ss.emit('ABC');
  
