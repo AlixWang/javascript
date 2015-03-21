@@ -7,6 +7,9 @@
  var http = require('http');
  var numCPUs = require('os').cpus().length;
 
+ var rssWarn = (12  );
+ var heapWarn = (10  );
+
  if(cluster.isMaster){
      //create working process
      for(var i=0;i<numCPUs;i++){
@@ -14,9 +17,13 @@
          cluster.fork();
      }
 
-     cluster.on('death',function(worker){
-         console.log('worker'+worker.pid+'died');
-         cluster.fork();    //when the master process is die will create new process
+     cluster.on('message',function(m){
+         if(m.memory){
+             if(m.memory.rss > rssWarn){
+                 console.log('worker'+m.process+'using too much memory.');
+             }
+         }
+        
      })
  }else{
      //working process create http server
@@ -25,4 +32,10 @@
          res.write('<p>this is test file</p>');
          res.end();
      }).listen(8000);
+
+     //ever second print the status
+     setInterval(function report(){
+         process.send({memory:process.memoryUsage(),process:process.pid});
+     },1000);
+
  }
