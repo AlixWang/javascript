@@ -15,5 +15,9 @@
 
  console.log(process.version);
  console.log(process.installPrefix);
+ console.log(process.env);
  console.log(process.platform);
  console.log(process.uptime());
+ console.log(process.cwd());
+ console.log(process.execPath);
+ console.log(process.memoryUsage());	//print the platform memory use
