@@ -9,5 +9,14 @@
 
  process.stdin.setEncoding('utf8');
  process.stdin.on('data',function(data){
- 	console.log(data);
+ 	//console.log(data);
+
+ 	/*
+	   you also can use this code to display the stdin contents
+ 	*/
+ 	process.stdout.write('date : '+data);
+ });
+
+ process.stdin.on('end',function(){
+ 	process.stdout.write('end');
  });
