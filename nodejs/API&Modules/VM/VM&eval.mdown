@@ -1,0 +1,10 @@
+##vm 和 eval() 的区别
+>>vm 的运行环境与上下文作用域无关
+	var vm = require('vm');
+	var a=0;
+	vm.runInThisContext(a++);
+	console.log(a);
+>>eval() 的运行环境与上下文作用域有关，并且会将运行结果带入上下文
+	var a=0;
+	eval(a++);
+	console.log(a);
