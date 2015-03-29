@@ -20,4 +20,4 @@
  console.log(process.uptime());
  console.log(process.cwd());
  console.log(process.execPath);
- console.log(process.memoryUsage());	//print the platform memory use
+ console.log(process.memoryUsage());	//print the platform memory use situation

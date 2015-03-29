@@ -20,3 +20,12 @@
  process.stdin.on('end',function(){
  	process.stdout.write('end');
  });
+
+ /*
+  * we have perfect ways to connect tow data stream from pipe through the second method	
+  * 
+ */
+
+ //second method
+ /*process.stdin.resume();
+ process.stdin.pipe(process.stdout);*/
